@@ -1,0 +1,95 @@
+//animations
+
+
+.gira1 {
+    -webkit-transform: rotate(90deg);  /* to support Safari and Android browser */
+    -ms-transform: rotate(90deg);      /* to support IE 9 */
+    transform: rotate(90deg);
+}
+
+.gira2 {
+    -webkit-transform: rotate(180deg);  /* to support Safari and Android browser */
+    -ms-transform: rotate(180deg);      /* to support IE 9 */
+    transform: rotate(180deg);
+}
+
+.zoom {
+    padding: 50px;
+   
+    transition: transform .2s; /* Animation */
+   
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    transform: scale(2); /* (200% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+.icon-property{
+    @include transition($slow-transition-time, $transition-bezier);
+    position: relative;
+    display: inline-block;
+}
+
+#animated-buttons{
+    .btn{
+        i{
+            position: relative;
+            top: 3px;
+            margin-top: -3px;
+        }
+    }
+}
+
+.btn-rotate{
+    i{
+        @extend .icon-property;
+    }
+
+    &:hover,
+    &:focus{
+        i{
+            @include rotate-53();
+        }
+    }
+}
+
+.btn-magnify{
+    i{
+        @extend .icon-property;
+    }
+
+    &:hover,
+    &:focus{
+        i{
+            @include transform-scale(1.22);
+        }
+    }
+}
+
+.btn-move-left{
+    i{
+        @extend .icon-property;
+        margin-right: 0;
+    }
+
+    &:hover,
+    &:focus{
+        i{
+            @include transform-translate-x(-5px);
+        }
+    }
+}
+
+.btn-move-right{
+    i{
+        @extend .icon-property;
+        margin-right: 0;
+    }
+
+    &:hover,
+    &:focus{
+        i{
+            @include transform-translate-x(5px);
+        }
+    }
+}

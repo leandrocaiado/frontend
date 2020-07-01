@@ -1,0 +1,70 @@
+<div class="main-content buttons-with-margin">
+    <div class="card">
+       <div class="row">
+          <div class="col-md-8">
+             <div class="main-content buttons-with-margin">
+                <form [formGroup]="cadastroLogForm" (ngSubmit)="onSubmit()">
+   
+
+
+                    <div class="row">
+                        <div class="col-md-8 px-1">
+                         
+                                    <div class="form-group">
+                                        <label for="arquivo">Clieque e escolha um arquivo de log para submenter</label>
+
+                                        <input type="file" accept=".log" formControlName="arquivo" id="arquivo" size="30" #fileInput ng2FileSelect [uploader]="uploader" (onFileSelected)="onFileSelected($event)" placeholder="arquivo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.arquivo.errors }" />
+                                    </div>
+                                   
+                                    <div *ngIf="submitted && f.arquivo.errors" >
+                                        <div *ngIf="f.arquivo.errors.required">
+                                          Escolha um arquivo de log
+                                        </div>
+                                    </div>
+                                   
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-9 mt-5">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Tamanho</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of uploader.queue">
+                                    <td>
+                                        {{ item?.file?.name }}
+                                    </td>
+                                    <td>
+                                        {{ item?.file?.size/1024/1024 | number:'.2' }} MB
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-xs" (click)="item.remove()">
+                     <span class="glyphicon glyphicon-trash"></span> 
+                     Remover arquivo
+                    </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+
+                
+                <div class="footer text-center">
+                   <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+                </form>
+             </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+       </div>
+    </div>

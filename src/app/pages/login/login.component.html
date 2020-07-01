@@ -1,0 +1,114 @@
+<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+  <div class="container">
+    <div class="navbar-wrapper">
+      <div class="navbar-toggle" (click)="sidebarToggle()">
+        <button type="button" class="navbar-toggler">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </button>
+      </div>
+         </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-bar navbar-kebab"></span>
+      <span class="navbar-toggler-bar navbar-kebab"></span>
+      <span class="navbar-toggler-bar navbar-kebab"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+      <ul class="navbar-nav">
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="wrapper wrapper-full-page ">
+  <div class="full-page section-image" filter-color="black" data-image="./assets/img/bg/fabio-mangione.jpg">
+    <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+    <div class="content">
+      <div class="container">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        
+                      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <div class="card card-login">
+              <div class="card-header ">
+                <div class="card-header ">
+                  
+                  <h3 class="header text-center">  <img src="./assets/img/passageiro2.png" height="130px"/></h3>
+                </div>
+              </div>
+
+              <div class="card-header ">
+                    Login - 123   SENHA - 123
+            </div>
+              <div class="card-body ">
+                <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="nc-icon nc-email-85"></i>
+                    </span>
+                  </div>
+                
+                    <input type="text" formControlName="username" id="username" size="30" placeholder="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">
+                            Email do Usuário é obrigatório
+                        </div>
+                    </div>
+               
+</div>
+                <div class="input-group"  [ngClass]="{'input-group-focus':focus1===true}">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="nc-icon nc-key-25"></i>
+                    </span>
+                  </div>
+              
+                                          <input type="password" formControlName="password"  size="30" placeholder="Senha" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                              <div *ngIf="f.password.errors.required">Senha é obrigatório</div>
+                                          </div>
+                                      </div>
+              
+                <br/>
+                <div class="form-group">
+                 
+                    <label class="form-check-label">
+                    
+                      <span class="form-check-sign"></span>
+                      <a class="nav-link" href="/#/pages/esqueceu">
+                        Esqueceu a Senha ? 
+                      </a>
+                    </label>
+                  
+                </div>
+              </div>
+              <div class="card-footer ">
+
+                <button type="submit" class="btn btn-warning btn-round btn-block mb-3">
+                 
+                  <span>Login</span>
+                </button>
+             </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer footer-black  footer-white ">
+      <div class="container">
+        <div class="row">
+          <nav class="footer-nav">
+           
+          </nav>
+          <div class="credits ml-auto">
+            <span class="copyright">
+              &copy; {{test | date: 'yyyy'}},  Developer by Prevent
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
